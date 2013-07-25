@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="3DxMouse_WPF" Width="744">
     <StackPanel>
-        <Grid Width="703">
+        <Grid>
             <ComboBox Height="22" Margin="87,26,12,0" Name="DevicesComboBox" VerticalAlignment="Top" />
             <Label Height="26" HorizontalAlignment="Left" Margin="16,22,0,0" Name="label1" VerticalAlignment="Top" Width="53">Devices</Label>
             <Label HorizontalAlignment="Left" Margin="34,90,0,0" Name="label2" Width="25" Height="26" VerticalAlignment="Top">X</Label>
@@ -26,110 +26,6 @@
 			<Label Margin="0,150,60,106" Name="lServo5" HorizontalAlignment="Right" Width="65">0</Label>
 			<Label Height="32" HorizontalAlignment="Left" Margin="30,0,0,50" Name="label8" VerticalAlignment="Bottom" Width="77">Buttons</Label>
             <Label Height="26" HorizontalAlignment="Left" Margin="113,0,0,56" Name="ButtonsLabel" VerticalAlignment="Bottom" Width="61">0</Label>
-        </Grid>
-        <Grid Background="LightGray" Width="600" Height="600" >
-            <Viewport3D Name="theViewport3D">
-                <Viewport3D.Camera>
-                    <PerspectiveCamera Position="0,0,4" LookDirection="0,0,-1" />
-                </Viewport3D.Camera>
-                <Viewport3D.Children>
-                    <ModelVisual3D>
-                        <ModelVisual3D.Content>
-                            <AmbientLight />
-                        </ModelVisual3D.Content>
-                    </ModelVisual3D>
-                    <ModelVisual3D>
-                        <ModelVisual3D.Transform>
-                            <Transform3DGroup>
-                                <Transform3DGroup.Children>
-                                    <Transform3DCollection >
-
-                                        <ScaleTransform3D ScaleX="1" ScaleY="1"  ScaleZ="1" />
-                                        <RotateTransform3D>
-                                            <RotateTransform3D.Rotation>
-                                                <AxisAngleRotation3D Axis="0 1 0" Angle="0" />
-                                            </RotateTransform3D.Rotation>
-                                        </RotateTransform3D>
-                                        <TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="0" />
-
-                                    </Transform3DCollection>
-                                </Transform3DGroup.Children>
-                            </Transform3DGroup>
-                        </ModelVisual3D.Transform>
-                        <ModelVisual3D.Content>
-                            <Model3DGroup x:Name="Cube">
-
-                                <GeometryModel3D x:Name="Front">
-                                    <GeometryModel3D.Material>
-                                        <DiffuseMaterial Brush="Red"/>
-                                    </GeometryModel3D.Material>
-                                    <GeometryModel3D.Geometry>
-                                        <MeshGeometry3D Positions="1,1,1 -1,1,1 -1,-1,1 1,-1,1"
-                                TextureCoordinates="0,0 0,1 1,1 1,0"
-                                TriangleIndices="0 1 2 0 2 3"/>
-                                    </GeometryModel3D.Geometry>
-                                </GeometryModel3D>
-
-                                <GeometryModel3D x:Name="Right">
-                                    <GeometryModel3D.Material>
-                                        <DiffuseMaterial Brush="Green"/>
-                                    </GeometryModel3D.Material>
-                                    <GeometryModel3D.Geometry>
-                                        <MeshGeometry3D Positions="1,1,-1 -1,1,-1 -1,1,1 1,1,1"
-                                TextureCoordinates="0,0 0,1 1,1 1,0"
-                                TriangleIndices="0 1 2 0 2 3"/>
-                                    </GeometryModel3D.Geometry>
-                                </GeometryModel3D>
-
-                                <GeometryModel3D x:Name="Back">
-                                    <GeometryModel3D.Material>
-                                        <DiffuseMaterial Brush="Magenta"/>
-                                    </GeometryModel3D.Material>
-                                    <GeometryModel3D.Geometry>
-                                        <MeshGeometry3D Positions="-1,-1,-1 -1,1,-1 1,1,-1 1,-1,-1"
-                                TextureCoordinates="0,0 0,1 1,1 1,0"
-                                TriangleIndices="0 1 2 0 2 3"/>
-                                    </GeometryModel3D.Geometry>
-                                </GeometryModel3D>
-
-                                <GeometryModel3D x:Name="LeftSide">
-                                    <GeometryModel3D.Material>
-                                        <DiffuseMaterial Brush="Yellow"/>
-                                    </GeometryModel3D.Material>
-                                    <GeometryModel3D.Geometry>
-                                        <MeshGeometry3D Positions="-1,1,1 -1,1,-1 -1,-1,-1 -1,-1,1"
-                                TextureCoordinates="0,0 0,1 1,1 1,0"
-                                TriangleIndices="0 1 2 0 2 3"/>
-                                    </GeometryModel3D.Geometry>
-                                </GeometryModel3D>
-
-                                <GeometryModel3D x:Name="TopSide">
-                                    <GeometryModel3D.Material>
-                                        <DiffuseMaterial Brush="Blue"/>
-                                    </GeometryModel3D.Material>
-                                    <GeometryModel3D.Geometry>
-                                        <MeshGeometry3D Positions="1,-1,1 1,-1,-1 1,1,-1 1,1,1"
-                                TextureCoordinates="0,0 0,1 1,1 1,0"
-                                TriangleIndices="0 1 2 0 2 3"/>
-                                    </GeometryModel3D.Geometry>
-                                </GeometryModel3D>
-
-                                <GeometryModel3D x:Name="Bottom">
-                                    <GeometryModel3D.Material>
-                                        <DiffuseMaterial Brush="Cyan"/>
-                                    </GeometryModel3D.Material>
-                                    <GeometryModel3D.Geometry>
-                                        <MeshGeometry3D Positions="-1,-1,1 -1,-1,-1 1,-1,-1 1,-1,1"
-                                TextureCoordinates="0,0 0,1 1,1 1,0"
-                                TriangleIndices="0 1 2 0 2 3"/>
-                                    </GeometryModel3D.Geometry>
-                                </GeometryModel3D>
-
-                            </Model3DGroup>
-                        </ModelVisual3D.Content>
-                    </ModelVisual3D>
-                </Viewport3D.Children>
-            </Viewport3D>
         </Grid>
     </StackPanel>
 </Window>

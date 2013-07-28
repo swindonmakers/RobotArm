@@ -36,7 +36,7 @@ namespace _3DxMouse_WPF
 
 		public string UpdateCommand()
 		{
-			return string.Format("# {0} P {1} S {2}", GetMappedServerNo(Number), Position, Speed);
+			return string.Format("# {0} P {1} S {2} ", GetMappedServerNo(Number), Position, Speed);
 		}
 
 		/// <summary>

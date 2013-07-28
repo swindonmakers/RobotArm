@@ -74,7 +74,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MouseEventProcessor.cs" />
+    <Compile Include="ProcessedMotionEventArgs.cs" />
+    <Compile Include="RobotArm.cs" />
     <Compile Include="Servo.cs" />
+    <Compile Include="ServoControllerBoard.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
       <SubType>Code</SubType>

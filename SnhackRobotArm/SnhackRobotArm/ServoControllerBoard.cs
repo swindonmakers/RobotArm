@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO.Ports;
 using System.Text;
 
-namespace _3DxMouse_WPF
+namespace SnhackRobotArm
 {
 	class ServoControllerBoard
 	{

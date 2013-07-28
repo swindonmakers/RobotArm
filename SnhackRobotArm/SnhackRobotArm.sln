@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3DxMouse_WPF", "3DxMouse_WPF\3DxMouse_WPF.csproj", "{BB067364-9AA9-4180-999C-5EE20102627F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnhackRobotArm", "SnhackRobotArm\SnhackRobotArm.csproj", "{BB067364-9AA9-4180-999C-5EE20102627F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

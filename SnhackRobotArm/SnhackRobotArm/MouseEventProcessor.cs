@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace _3DxMouse_WPF
+namespace SnhackRobotArm
 {
 	class MouseEventProcessor
 	{

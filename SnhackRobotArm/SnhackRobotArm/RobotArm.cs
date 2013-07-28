@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace _3DxMouse_WPF
+namespace SnhackRobotArm
 {
 	class RobotArm
 	{

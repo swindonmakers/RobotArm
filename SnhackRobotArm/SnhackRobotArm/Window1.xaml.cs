@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using System.Windows.Interop;
 using Application = System.Windows.Application;
 
-namespace _3DxMouse_WPF
+namespace SnhackRobotArm
 {
     public partial class Window1 : Window
     {

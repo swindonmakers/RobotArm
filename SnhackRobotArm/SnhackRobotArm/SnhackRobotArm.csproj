@@ -8,8 +8,8 @@
     <ProjectGuid>{BB067364-9AA9-4180-999C-5EE20102627F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_3DxMouse_WPF</RootNamespace>
-    <AssemblyName>3DxMouse_WPF</AssemblyName>
+    <RootNamespace>SnhackRobotArm</RootNamespace>
+    <AssemblyName>SnhackRobotArm</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

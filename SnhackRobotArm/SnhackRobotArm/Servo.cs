@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _3DxMouse_WPF
+namespace SnhackRobotArm
 {
 	class Servo
 	{

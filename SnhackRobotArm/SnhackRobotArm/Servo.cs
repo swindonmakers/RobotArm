@@ -7,7 +7,7 @@ namespace SnhackRobotArm
 		public const int CENTER_POSITION = 1500;
 
 		public const int SPEED_LOW = 500;
-		public const int SPEED_HIGH = 2000;
+		public const int SPEED_HIGH = 1500;
 
 		public Servo(int number) : this(number, 600, 2400, 500) { }
 

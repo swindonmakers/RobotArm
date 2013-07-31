@@ -6,8 +6,6 @@ namespace SnhackRobotArm
 {
 	class RobotArm
 	{
-		const int SERVO_CENTER = 1500;
-
 		List<Servo> servos;
 		public Servo BaseRotation { get; private set; }
 		public Servo BaseElevation { get; private set; }
@@ -32,16 +30,15 @@ namespace SnhackRobotArm
 
 		public void Reset()
 		{
-			BaseRotation.Position = SERVO_CENTER;
-			BaseElevation.Position = SERVO_CENTER;
-			LowerArmJoint.Position = SERVO_CENTER;
-			UpperArmJoint.Position = SERVO_CENTER;
-			WristRotation.Position = SERVO_CENTER;
+			BaseRotation.Position = Servo.CENTER_POSITION;
+			BaseElevation.Position = Servo.CENTER_POSITION;
+			LowerArmJoint.Position = Servo.CENTER_POSITION;
+			UpperArmJoint.Position = Servo.CENTER_POSITION;
+			WristRotation.Position = Servo.CENTER_POSITION;
 			Gripper.Position = 2400;
 
-			servos.ForEach(s => s.Speed = 2000);
+			servos.ForEach(s => s.Speed = Servo.SPEED_HIGH);
 			SendServoUpdateCommand(true);
-			servos.ForEach(s => s.Speed = 500);
 		}
 
 		public void Park()
@@ -53,9 +50,8 @@ namespace SnhackRobotArm
 			WristRotation.Position = 1500;
 			Gripper.Position = 1500;
 
-			servos.ForEach(s => s.Speed = 2000);
+			servos.ForEach(s => s.Speed = Servo.SPEED_HIGH);
 			SendServoUpdateCommand(true);
-			servos.ForEach(s => s.Speed = 500);
 		}
 
 		public void Move(VectorType vectorType, int amount)

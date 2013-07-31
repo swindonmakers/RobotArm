@@ -4,6 +4,11 @@ namespace SnhackRobotArm
 {
 	class Servo
 	{
+		public const int CENTER_POSITION = 1500;
+
+		public const int SPEED_LOW = 500;
+		public const int SPEED_HIGH = 2000;
+
 		public Servo(int number) : this(number, 600, 2400, 500) { }
 
 		public Servo(int number, int minimum, int maximum, int speed)

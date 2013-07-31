@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace SnhackRobotArm
 {
@@ -60,7 +61,7 @@ namespace SnhackRobotArm
 		public void Move(VectorType vectorType, int amount)
 		{
 			var scaledAmount = amount / 50;
-			var speed = 400 + amount / 10;
+			var speed = 500 + 2 * Math.Abs(amount);
 
 			switch (vectorType)
 			{

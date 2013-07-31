@@ -25,7 +25,7 @@ namespace SnhackRobotArm
 
 		public void SendServoUpdates(IEnumerable<Servo> servos, bool force)
 		{
-			if ((DateTime.Now - lastServoCommand).TotalMilliseconds > 100 || force)
+			if ((DateTime.Now - lastServoCommand).TotalMilliseconds > 50 || force)
 			{
 				var command = new StringBuilder();
 				foreach(var servo in servos)

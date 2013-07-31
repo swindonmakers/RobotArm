@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace SnhackRobotArm
 {
@@ -20,11 +21,11 @@ namespace SnhackRobotArm
 		{
 			controllerBoard = new ServoControllerBoard();
 			BaseRotation = new Servo(1);
-			BaseElevation = new Servo(2);
+			BaseElevation = new Servo(2); 
 			LowerArmJoint = new Servo(3);
 			UpperArmJoint = new Servo(4);
-			WristRotation = new Servo(5);
-			Gripper = new Servo(6);
+			WristRotation = new Servo(5, 600, 2200, 500);
+			Gripper = new Servo(6, 650, 2200, 500);
 			servos = new List<Servo> { BaseRotation, BaseElevation, LowerArmJoint, UpperArmJoint, WristRotation, Gripper };
 		}
 
@@ -35,9 +36,25 @@ namespace SnhackRobotArm
 			LowerArmJoint.Position = SERVO_CENTER;
 			UpperArmJoint.Position = SERVO_CENTER;
 			WristRotation.Position = SERVO_CENTER;
-			Gripper.Position = SERVO_CENTER;
+			Gripper.Position = 2400;
 
-			SendServoUpdateCommand();
+			servos.ForEach(s => s.Speed = 2000);
+			SendServoUpdateCommand(true);
+			servos.ForEach(s => s.Speed = 500);
+		}
+
+		public void Park()
+		{
+			BaseRotation.Position = 600;
+			BaseElevation.Position = 600;
+			LowerArmJoint.Position = 600;
+			UpperArmJoint.Position = 2400;
+			WristRotation.Position = 1500;
+			Gripper.Position = 1500;
+
+			servos.ForEach(s => s.Speed = 2000);
+			SendServoUpdateCommand(true);
+			servos.ForEach(s => s.Speed = 500);
 		}
 
 		public void Move(VectorType vectorType, int amount)
@@ -73,12 +90,12 @@ namespace SnhackRobotArm
 					break;
 			}
 
-			SendServoUpdateCommand();
+			SendServoUpdateCommand(false);
 		}
 
-		private void SendServoUpdateCommand()
+		private void SendServoUpdateCommand(bool force)
 		{
-			controllerBoard.SendServoUpdates(servos);
+			controllerBoard.SendServoUpdates(servos, force);
 		}
 	}
 }

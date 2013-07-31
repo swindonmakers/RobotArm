@@ -12,6 +12,7 @@ namespace SnhackRobotArm
 			Minimum = minimum;
 			Maximum = maximum;
 			Speed = speed;
+			Position = 1500;
 		}
 
 		public int Number { get; private set; }
@@ -47,11 +48,11 @@ namespace SnhackRobotArm
 		{
 			switch (servoNumber)
 			{
-				case 5: return 5;
+				case 1: return 5;
 				case 2: return 6;
 				case 3: return 4;
 				case 4: return 3;
-				case 1: return 2;
+				case 5: return 2;
 				case 6: return 1;
 				default: throw new ArgumentOutOfRangeException("servoNumber", servoNumber, "Can't map servo number");
 			}

@@ -18,7 +18,7 @@ namespace SnhackRobotArm
 			if (e.RotationVector != null)
 				rotationVector = e.RotationVector;
 
-			if (e.TranslationVector != null && e.RotationVector != null)
+			if (translationVector != null && rotationVector != null)
 			{
 				Dictionary<VectorType, int> vectors = new Dictionary<VectorType, int>();
 				vectors.Add(VectorType.TranslateX, translationVector.X);
@@ -31,11 +31,14 @@ namespace SnhackRobotArm
 				e.TranslationVector = null;
 				e.RotationVector = null;
 
-				var maxVector = vectors.Max();
+				var maxVector = VectorType.TranslateX;
+				foreach (var k in vectors.Keys)
+					if (Math.Abs(vectors[k]) > Math.Abs(vectors[maxVector]))
+						maxVector = k;
 
 				var handler = ProcessedMotion;
 				if (handler != null)
-					handler(this, new ProcessedMotionEventArgs(maxVector.Key, maxVector.Value));
+					handler(this, new ProcessedMotionEventArgs(maxVector, vectors[maxVector]));
 			}
 		}
 	}

@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Interop;
 using Application = System.Windows.Application;
+using System.Threading;
 
 namespace SnhackRobotArm
 {
@@ -17,6 +18,7 @@ namespace SnhackRobotArm
         {
             Activate();
 			mouseEventProcessor.ProcessedMotion += new EventHandler<ProcessedMotionEventArgs>(mouseEventProcessor_ProcessedMotion);
+			arm.Reset();
         }
 
 		private void ButtonEvent(object sender, _3DxMouse._3DxMouse.ButtonEventArgs e)
@@ -26,7 +28,10 @@ namespace SnhackRobotArm
 			// Show the buttons that are pressed
 			this.ButtonsLabel.Content = e.ButtonMask.Pressed.ToString("X");
 
-			arm.Reset();
+			if (e.ButtonMask.Pressed == 1)
+				arm.Reset();
+			else if (e.ButtonMask.Pressed == 2)
+				arm.Park();
 		}
 		
 		private void MotionEvent(object sender, _3DxMouse._3DxMouse.MotionEventArgs e)

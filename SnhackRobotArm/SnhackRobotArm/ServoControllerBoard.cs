@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO.Ports;
 using System.Text;
+using SnhackRobotArm.Properties;
 
 namespace SnhackRobotArm
 {
@@ -14,7 +15,7 @@ namespace SnhackRobotArm
 		{
 			try
 			{
-				port = new SerialPort("COM22", 115200, Parity.None, 8, StopBits.One);
+				port = new SerialPort(Settings.Default.ComPort, 115200, Parity.None, 8, StopBits.One);
 				port.Open();
 			}
 			catch (Exception)

@@ -22,5 +22,14 @@ namespace SnhackRobotArm.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("COM22")]
+        public string ComPort {
+            get {
+                return ((string)(this["ComPort"]));
+            }
+        }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace SnhackRobotArm
 {
@@ -28,8 +27,8 @@ namespace SnhackRobotArm
 				vectors.Add(VectorType.RotateY, rotationVector.Y);
 				vectors.Add(VectorType.RotateZ, rotationVector.Z);
 
-				e.TranslationVector = null;
-				e.RotationVector = null;
+				translationVector = null;
+				rotationVector = null;
 
 				var maxVector = VectorType.TranslateX;
 				foreach (var k in vectors.Keys)

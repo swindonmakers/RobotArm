@@ -5,7 +5,6 @@ namespace SnhackRobotArm
 	class Servo
 	{
 		public const int CENTER_POSITION = 1500;
-
 		public const int SPEED_LOW = 500;
 		public const int SPEED_HIGH = 1500;
 
@@ -17,7 +16,7 @@ namespace SnhackRobotArm
 			Minimum = minimum;
 			Maximum = maximum;
 			Speed = speed;
-			Position = 1500;
+			Position = CENTER_POSITION;
 		}
 
 		public int Number { get; private set; }

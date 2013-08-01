@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SnhackRobotArm
 {
@@ -37,7 +36,7 @@ namespace SnhackRobotArm
 			WristRotation.Position = Servo.CENTER_POSITION;
 			Gripper.Position = 2400;
 
-			servos.ForEach(s => s.Speed = Servo.SPEED_HIGH);
+			SetServoSpeedToMax();
 			SendServoUpdateCommand(true);
 		}
 
@@ -50,7 +49,7 @@ namespace SnhackRobotArm
 			WristRotation.Position = 1500;
 			Gripper.Position = 1500;
 
-			servos.ForEach(s => s.Speed = Servo.SPEED_HIGH);
+			SetServoSpeedToMax();
 			SendServoUpdateCommand(true);
 		}
 
@@ -88,6 +87,11 @@ namespace SnhackRobotArm
 			}
 
 			SendServoUpdateCommand(false);
+		}
+
+		private void SetServoSpeedToMax()
+		{
+			servos.ForEach(s => s.Speed = Servo.SPEED_HIGH);
 		}
 
 		private void SendServoUpdateCommand(bool force)

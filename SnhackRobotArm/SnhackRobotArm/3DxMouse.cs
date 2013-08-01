@@ -7,6 +7,8 @@ using Microsoft.Win32;
 // Drawn heavily from Emma Burrows codeproject sample
 // which closely follows the C++ MS WM_INPUT sample.
 
+// Directly copied from sample on http://www.3dconnexion.co.uk/forum/viewtopic.php?t=1802
+
 namespace _3DxMouse
 {
     public sealed class _3DxMouse

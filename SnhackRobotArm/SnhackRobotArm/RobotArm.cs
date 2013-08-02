@@ -61,28 +61,28 @@ namespace SnhackRobotArm
 			switch (vectorType)
 			{
 				case VectorType.TranslateX:
-					BaseRotation.Position += scaledAmount;
-					BaseRotation.Speed = speed;
+					Gripper.Position += scaledAmount;
+					Gripper.Speed = speed;
 					break;
 				case VectorType.TranslateY:
 					BaseElevation.Position += scaledAmount;
 					BaseElevation.Speed = speed;
 					break;
 				case VectorType.TranslateZ:
-					LowerArmJoint.Position += scaledAmount;
-					LowerArmJoint.Speed = speed;
-					break;
-				case VectorType.RotateX:
 					UpperArmJoint.Position += scaledAmount;
 					UpperArmJoint.Speed = speed;
+					break;
+				case VectorType.RotateX:
+					BaseRotation.Position += scaledAmount;
+					BaseRotation.Speed = speed;
 					break;
 				case VectorType.RotateY:
 					WristRotation.Position += scaledAmount;
 					WristRotation.Speed = speed;
 					break;
 				case VectorType.RotateZ:
-					Gripper.Position += scaledAmount;
-					Gripper.Speed = speed;
+					LowerArmJoint.Position += scaledAmount;
+					LowerArmJoint.Speed = speed;
 					break;
 			}
 

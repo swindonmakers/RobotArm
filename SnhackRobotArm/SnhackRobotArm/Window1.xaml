@@ -1,31 +1,74 @@
 ﻿<Window x:Class="SnhackRobotArm.Window1"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Swindon Hackspace Robot Arm Controller" Width="744">
+    Title="Swindon Hackspace Robot Arm Controller" Width="778" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="662">
     <StackPanel>
-        <Grid>
-            <ComboBox Height="22" Margin="87,26,12,0" Name="DevicesComboBox" VerticalAlignment="Top" />
-            <Label Height="26" HorizontalAlignment="Left" Margin="16,22,0,0" Name="label1" VerticalAlignment="Top" Width="53">Devices</Label>
-            <Label HorizontalAlignment="Left" Margin="34,90,0,0" Name="label2" Width="25" Height="26" VerticalAlignment="Top">X</Label>
-            <Label HorizontalAlignment="Left" Margin="113,90,0,0" Name="label3" Width="25" Height="26" VerticalAlignment="Top">Y</Label>
-            <Label HorizontalAlignment="Left" Margin="206,90,0,0" Name="label4" Width="25" Height="26" VerticalAlignment="Top">Z</Label>
-            <Label Margin="0,90,265,0" Name="label5" HorizontalAlignment="Right" Width="25" Height="26" VerticalAlignment="Top">Rx</Label>
-            <Label Margin="0,90,186,0" Name="label6" HorizontalAlignment="Right" Width="25" Height="26" VerticalAlignment="Top">Ry</Label>
-            <Label Margin="0,90,100,0" Name="label7" HorizontalAlignment="Right" Width="25" Height="26" VerticalAlignment="Top">Rz</Label>
-            <Label HorizontalAlignment="Left" Margin="34,110,0,106" Name="XDataLabel" Width="52">0</Label>
-            <Label HorizontalAlignment="Left" Margin="113,110,0,106" Name="YDataLabel" Width="44">0</Label>
-            <Label HorizontalAlignment="Left" Margin="206,110,0,106" Name="ZDataLabel" Width="55">0</Label>
-            <Label Margin="0,110,242,106" Name="RxDataLabel" HorizontalAlignment="Right" Width="48">0</Label>
-            <Label Margin="492,110,0,106" Name="RyDataLabel" HorizontalAlignment="Left" Width="44">0</Label>
-            <Label Margin="0,110,60,106" Name="RzDataLabel" HorizontalAlignment="Right" Width="65">0</Label>
-			<Label HorizontalAlignment="Left" Margin="34,150,0,106" Name="lServo0" Width="52">0</Label>
-			<Label HorizontalAlignment="Left" Margin="113,150,0,106" Name="lServo1" Width="44">0</Label>
-			<Label HorizontalAlignment="Left" Margin="206,150,0,106" Name="lServo2" Width="55">0</Label>
-			<Label Margin="0,150,242,106" Name="lServo3" HorizontalAlignment="Right" Width="48">0</Label>
-			<Label Margin="492,150,0,106" Name="lServo4" HorizontalAlignment="Left" Width="44">0</Label>
-			<Label Margin="0,150,60,106" Name="lServo5" HorizontalAlignment="Right" Width="65">0</Label>
-			<Label Height="32" HorizontalAlignment="Left" Margin="30,0,0,50" Name="label8" VerticalAlignment="Bottom" Width="77">Buttons</Label>
-            <Label Height="26" HorizontalAlignment="Left" Margin="113,0,0,56" Name="ButtonsLabel" VerticalAlignment="Bottom" Width="61">0</Label>
-        </Grid>
-    </StackPanel>
+		<StackPanel Orientation="Horizontal">
+			<StackPanel>
+				<StackPanel Orientation="Horizontal">
+					<Label>Devices</Label>
+					<ComboBox Name="DevicesComboBox" Width="340" />
+				</StackPanel>
+				<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+					<ColumnDefinition />
+					<ColumnDefinition />
+					<ColumnDefinition />
+					<ColumnDefinition />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+			
+				<Label Grid.Row="0" Grid.Column="1">X</Label>
+				<Label Grid.Row="0" Grid.Column="2">Y</Label>
+				<Label Grid.Row="0" Grid.Column="3">Z</Label>
+				<Label Grid.Row="0" Grid.Column="4">rX</Label>
+				<Label Grid.Row="0" Grid.Column="5">rY</Label>
+				<Label Grid.Row="0" Grid.Column="6">rZ</Label>
+
+				<Label Grid.Row="1" Grid.Column="0">Controller Input</Label>
+				<Label Grid.Row="1" Grid.Column="1" Name="XDataLabel">0</Label>
+				<Label Grid.Row="1" Grid.Column="2" Name="YDataLabel">0</Label>
+				<Label Grid.Row="1" Grid.Column="3" Name="ZDataLabel">0</Label>
+				<Label Grid.Row="1" Grid.Column="4" Name="RxDataLabel">0</Label>
+				<Label Grid.Row="1" Grid.Column="5" Name="RyDataLabel">0</Label>
+				<Label Grid.Row="1" Grid.Column="6" Name="RzDataLabel">0</Label>
+
+				<Label Grid.Row="2" Grid.Column="0">Servo Position</Label>
+				<Label Grid.Row="2" Grid.Column="1" Name="lServo0">0</Label>
+				<Label Grid.Row="2" Grid.Column="2" Name="lServo1">0</Label>
+				<Label Grid.Row="2" Grid.Column="3" Name="lServo2">0</Label>
+				<Label Grid.Row="2" Grid.Column="4" Name="lServo3">0</Label>
+				<Label Grid.Row="2" Grid.Column="5" Name="lServo4">0</Label>
+				<Label Grid.Row="2" Grid.Column="6" Name="lServo5">0</Label>
+			
+				<Label Grid.Row="3" Grid.Column="0">Buttons</Label>
+				<Label Grid.Row="3" Grid.Column="1" Name="ButtonsLabel">0</Label>
+			</Grid>
+			</StackPanel>
+			<Image Source="Images/Robot.png" Stretch="None" />
+		</StackPanel>
+		<Canvas Margin="10">
+			<Border Visibility="Hidden" CornerRadius="3,3,3,3" Canvas.Left="3" Canvas.Top="21" Width="70" Height="55" Background="GreenYellow" />
+			<Border Visibility="Hidden" CornerRadius="3,3,3,3" Canvas.Left="137" Canvas.Top="21" Width="70" Height="55" Background="GreenYellow" />
+			<Border Visibility="Hidden" CornerRadius="3,3,3,3" Canvas.Left="270" Canvas.Top="21" Width="70" Height="55" Background="GreenYellow" />
+			<Border Visibility="Hidden" CornerRadius="3,3,3,3" Canvas.Left="393" Canvas.Top="21" Width="70" Height="55" Background="GreenYellow" />
+			<Border Visibility="Hidden" CornerRadius="3,3,3,3" Canvas.Left="517" Canvas.Top="21" Width="70" Height="55" Background="GreenYellow" />
+			<Border Visibility="Hidden" CornerRadius="3,3,3,3" Canvas.Left="640" Canvas.Top="21" Width="70" Height="55" Background="GreenYellow" />
+			<Image Source="Images/Controller.png" Stretch="None" />
+			<TextBlock Canvas.Left="10" Canvas.Top="95" Width="50" TextAlignment="Center" TextWrapping="Wrap">Base Rotation</TextBlock>
+			<TextBlock Canvas.Left="150" Canvas.Top="95" Width="50" TextAlignment="Center" TextWrapping="Wrap">Base Elevation</TextBlock>
+			<TextBlock Canvas.Left="275" Canvas.Top="95" Width="60" TextAlignment="Center" TextWrapping="Wrap">Lower Arm Joint</TextBlock>
+			<TextBlock Canvas.Left="400" Canvas.Top="95" Width="60" TextAlignment="Center" TextWrapping="Wrap">Upper Arm Joint</TextBlock>
+			<TextBlock Canvas.Left="525" Canvas.Top="95" Width="50" TextAlignment="Center" TextWrapping="Wrap">Wrist Rotation</TextBlock>
+			<TextBlock Canvas.Left="650" Canvas.Top="95" Width="50" TextAlignment="Center" TextWrapping="Wrap">Gripper</TextBlock>
+		</Canvas>
+	</StackPanel>
 </Window>

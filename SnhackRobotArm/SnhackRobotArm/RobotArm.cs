@@ -73,16 +73,16 @@ namespace SnhackRobotArm
 					UpperArmJoint.Speed = speed;
 					break;
 				case VectorType.RotateX:
-					BaseRotation.Position += scaledAmount;
-					BaseRotation.Speed = speed;
+					LowerArmJoint.Position += scaledAmount;
+					LowerArmJoint.Speed = speed;
 					break;
 				case VectorType.RotateY:
 					WristRotation.Position += scaledAmount;
 					WristRotation.Speed = speed;
 					break;
 				case VectorType.RotateZ:
-					LowerArmJoint.Position += scaledAmount;
-					LowerArmJoint.Speed = speed;
+					BaseRotation.Position += scaledAmount;
+					BaseRotation.Speed = speed;
 					break;
 			}
 

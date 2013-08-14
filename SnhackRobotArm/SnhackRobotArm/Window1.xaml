@@ -6,7 +6,7 @@
 		Width="778"
 		Height="662"
 		WindowStartupLocation="CenterScreen">
-    <StackPanel>
+    <StackPanel HorizontalAlignment="Center">
 		<StackPanel Orientation="Horizontal">
 			<StackPanel>
 				<StackPanel Orientation="Horizontal">

@@ -23,7 +23,7 @@ namespace SnhackRobotArm
 			LowerArmJoint = new Servo(3);
 			UpperArmJoint = new Servo(4);
 			WristRotation = new Servo(5, 600, 2200, 500);
-			Gripper = new Servo(6, 650, 2200, 500);
+			Gripper = new Servo(6, 1600, 2200, 500);
 			servos = new List<Servo> { BaseRotation, BaseElevation, LowerArmJoint, UpperArmJoint, WristRotation, Gripper };
 		}
 
@@ -85,8 +85,37 @@ namespace SnhackRobotArm
 					BaseRotation.Speed = speed;
 					break;
 			}
+            
+            CalcHeight();
 
-			SendServoUpdateCommand(false);
+            if (Height > 2)
+            {
+                SendServoUpdateCommand(false);
+            }
+            else
+            {
+                switch (vectorType)
+                {
+                    case VectorType.TranslateX:
+                        Gripper.Position -= scaledAmount;
+                        break;
+                    case VectorType.TranslateY:
+                        BaseElevation.Position -= scaledAmount;
+                        break;
+                    case VectorType.TranslateZ:
+                        UpperArmJoint.Position -= scaledAmount;
+                        break;
+                    case VectorType.RotateX:
+                        LowerArmJoint.Position -= scaledAmount;
+                        break;
+                    case VectorType.RotateY:
+                        WristRotation.Position -= scaledAmount;
+                        break;
+                    case VectorType.RotateZ:
+                        BaseRotation.Position -= scaledAmount;
+                        break;
+                }
+            }
 		}
 
 		private void SetServoSpeedToMax()
@@ -98,5 +127,65 @@ namespace SnhackRobotArm
 		{
 			controllerBoard.SendServoUpdates(servos, force);
 		}
+
+        private void CalcHeight()
+        {
+            double Base = BaseElevation.PositionDegrees;
+            double Lower = LowerArmJoint.PositionDegrees;
+            double Upper = UpperArmJoint.PositionDegrees;
+
+            const int BASE_HEIGHT = 9;   //Height of base
+            const int BASE_LENGTH = 8;   //Length of Base arm
+            const int LOWER_LENGTH = 8;  //Length of lower arm
+            const int UPPER_LENGTH = 20; //6cm arm + 14 cm gripper length
+
+            //Initialize Height as Base height
+            double height = BASE_HEIGHT;
+
+            //Base arm
+            double BaseAngle = 180 - Base;
+            double x = BASE_LENGTH * Math.Sin((BaseAngle * Math.PI) / 180);
+            height += x;
+
+            //Mid arm / Lower Joint
+            double HorzAngle = 90 - BaseAngle;
+            double LowerAngle = Lower - HorzAngle;
+            x = LOWER_LENGTH * Math.Sin((LowerAngle * Math.PI) / 180);
+
+            /* If Below Horizontal/subtract Height
+             * If Above Horizontal/add to Height*/
+            if (LowerArmJoint.PositionDegrees < HorzAngle)
+            { 
+                height -= x;
+            }
+            else
+            {
+                height += x;
+            }
+
+            //Top arm / Upper Joint
+            HorzAngle = LowerAngle - BaseAngle;
+            double UpperAngle = Upper - HorzAngle;
+            x = UPPER_LENGTH * Math.Sin((UpperAngle * Math.PI) / 180);
+
+            /* If Below Horizontal/subtract Height
+             * If Above Horizontal/add to Height*/
+            if (Upper < HorzAngle)
+            {
+                height -= x;
+            }
+            else
+            {
+                height += x;
+            }
+            //return Math.Round(Height, 3);  
+            Height = Math.Round(height, 3);  
+        }
+
+        public double Height
+        {
+            get;
+            private set;
+        }
 	}
 }

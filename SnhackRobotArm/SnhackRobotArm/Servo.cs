@@ -18,7 +18,7 @@ namespace SnhackRobotArm
 			Speed = speed;
 			Position = CENTER_POSITION;
 		}
-
+        
 		public int Number { get; private set; }
 		public int Minimum { get; private set; }
 		public int Maximum { get; private set; }
@@ -38,6 +38,11 @@ namespace SnhackRobotArm
 					position = value;
 			}
 		}
+
+        public double PositionDegrees
+        {
+            get { return (Position - Minimum) / (Maximum - Minimum) * 180; }
+        }
 
 		public string UpdateCommand()
 		{

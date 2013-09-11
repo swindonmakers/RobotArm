@@ -19,7 +19,9 @@
 					<RowDefinition />
 					<RowDefinition />
 					<RowDefinition />
-				</Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    </Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
 					<ColumnDefinition />
@@ -55,7 +57,19 @@
 			
 				<Label Grid.Row="3" Grid.Column="0">Buttons</Label>
 				<Label Grid.Row="3" Grid.Column="1" Name="ButtonsLabel">0</Label>
-			</Grid>
+
+                <Label Grid.Row="4" Grid.Column="0">Height</Label>
+                <Label Grid.Row="4" Grid.Column="1" Name="HeightLabel">Not Set</Label>
+
+                <Label Grid.Row="5" Grid.Column="0">Servo Position</Label>
+                <Label Grid.Row="5" Grid.Column="1" Name="lServoAngle0">0</Label>
+                <Label Grid.Row="5" Grid.Column="2" Name="lServoAngle1">0</Label>
+                <Label Grid.Row="5" Grid.Column="3" Name="lServoAngle2">0</Label>
+                <Label Grid.Row="5" Grid.Column="4" Name="lServoAngle3">0</Label>
+                <Label Grid.Row="5" Grid.Column="5" Name="lServoAngle4">0</Label>
+                <Label Grid.Row="5" Grid.Column="6" Name="lServoAngle5">0</Label>
+
+                </Grid>
 			</StackPanel>
 			<Image Source="Images/Robot.png" Stretch="None" />
 		</StackPanel>

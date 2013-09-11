@@ -64,6 +64,13 @@ namespace SnhackRobotArm
 			lServo3.Content = arm.UpperArmJoint.Position;
 			lServo4.Content = arm.WristRotation.Position;
 			lServo5.Content = arm.Gripper.Position;
+            HeightLabel.Content = arm.Height;
+            lServoAngle0.Content = Math.Round(arm.BaseRotation.PositionDegrees,1);
+            lServoAngle1.Content = Math.Round(arm.BaseElevation.PositionDegrees,1);
+            lServoAngle2.Content = Math.Round(arm.LowerArmJoint.PositionDegrees,1);
+            lServoAngle3.Content = Math.Round(arm.UpperArmJoint.PositionDegrees,1);
+            lServoAngle4.Content = Math.Round(arm.WristRotation.PositionDegrees,1);
+            lServoAngle5.Content = Math.Round(arm.Gripper.PositionDegrees, 1);
 		}
 
 		private void CheckDeviceChange(_3DxMouse._3DxMouse.DeviceInfo deviceInfo)

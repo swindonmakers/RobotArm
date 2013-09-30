@@ -14,5 +14,6 @@ So far, just hacked the example from 3dconnexion to make the space mouse control
 
 
 Planned updates/fixes/changes:
-		Fix height detection as it's buggy
-		Add a timeout feature so arm resets if left unmoved
+
+    -Fix height detection as it's buggy
+    -Add a timeout feature so arm resets if left unmoved
